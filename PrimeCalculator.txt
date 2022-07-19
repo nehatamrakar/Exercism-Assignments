@@ -1,0 +1,28 @@
+import java.util.List;
+import java.util.ArrayList;
+class PrimeCalculator {
+    int nth(int nth) {
+      if(nth < 1) {
+        throw new IllegalArgumentException();
+      }
+
+    int count_of_prime_numbers=0;    
+    List<Integer>prime_numbers = new ArrayList<Integer>();
+        int current_number=2;
+    while(count_of_prime_numbers<nth){
+            boolean isPrime=true;
+            for(int index=0;index<prime_numbers.size();index++){
+                    if(current_number%prime_numbers.get(index)==0){
+                        isPrime=false;
+                        break;
+                    }
+                }
+        if(isPrime){
+            count_of_prime_numbers++;
+            prime_numbers.add(current_number);
+        }
+        current_number++;
+        }
+        return current_number-1;
+        }
+}
